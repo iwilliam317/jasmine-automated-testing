@@ -7,7 +7,6 @@ describe('Animal', function(){
   })
 
   describe('when creating an animal', function(){
-
     it ('should be named as Tsuki', function(){
       expect(animal.name).toEqual('Tsuki');
     });
@@ -15,7 +14,6 @@ describe('Animal', function(){
     it ('should be a female gender', function(){
       expect(animal.gender).toEqual('female');
     })
-
   })
 
   describe('#walk()', function(){
