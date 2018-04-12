@@ -6,7 +6,11 @@ class Animal{
   }
   
   walk(){
-    console.log(`${this.name} is walking...`);
+    return `${this.name} is walking...`
+  }
+
+  display_info(){
+    return `${this.name} is a ${this.gender} animal`
   }
 }
 
