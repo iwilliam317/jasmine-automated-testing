@@ -1,19 +1,18 @@
+const attributes = new WeakMap();
+
 class Animal{
-  
   constructor(name, gender){
-    this.name = name;
-    this.gender = gender;
+    attributes.set(this, {name, gender})
   }
   
+  getAttribute(attribute){
+    return attributes.get(this)[attribute];
+  }
   walk(){
-    return `${this.name} is walking...`
+    return `${attributes.get(this)['name']} is walking...`
   }
 
   display_info(){
-    return `${this.name} is a ${this.gender} animal`
+    return `${attributes.get(this)['name']} is a ${attributes.get(this)['gender']} animal`
   }
 }
-
-
-// tsuki = new Animal("tsuki", "female")
-// tsuki.walk();

@@ -7,12 +7,17 @@ describe('Animal', function(){
   })
 
   describe('when creating an animal', function(){
-    it ('should be named as Tsuki', function(){
-      expect(animal.name).toEqual('Tsuki');
+    it('should be named as Tsuki', function(){
+      expect(animal.getAttribute('name')).toEqual('Tsuki');
     });
 
-    it ('should be a female gender', function(){
-      expect(animal.gender).toEqual('female');
+    it('should be a female gender', function(){
+      expect(animal.getAttribute('gender')).toEqual('female');
+    })
+
+    it('should not allow access to attributes', function(){
+      expect(animal.name).toEqual(undefined);
+      expect(animal.gender).toEqual(undefined);
     })
   })
 
