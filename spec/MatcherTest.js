@@ -39,6 +39,18 @@ describe('MatcherTest', () =>{
 
   it('#toContain', () =>{
     let evenNumbers = [2, 4, 6];
+    let sentence = "an elephant goes to.."
     expect(evenNumbers).toContain(2);
+    expect(evenNumbers).not.toContain(1);
+    expect(sentence).toContain('elephant');
   })
+
+  it('#toBeLessThan #toBeGreaterThan', () => {
+    let pi = 3.1415926;
+    expect(pi).toBeLessThan(5);
+    expect(pi).not.toBeLessThan(1);
+    expect(pi).toBeGreaterThan(1);
+  })
+
+
 })
