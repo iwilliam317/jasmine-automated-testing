@@ -76,4 +76,23 @@ describe('MatcherTest', () =>{
     })
   })
 
+  describe('spy', () => {
+    let rabbit = {};
+    beforeEach( () => {
+      rabbit = {
+        name,
+        setName: function(name){
+          this.name = name;
+        }
+      }
+      spyOn(rabbit, 'setName');
+      rabbit.setName('chapo');
+    })
+    // #toHaveBeenCalled tracks that the spy was called
+    it('#toHaveBeenCalled', () => {
+        expect(rabbit.setName).toHaveBeenCalled();
+    })
+
+  })
+
 })
