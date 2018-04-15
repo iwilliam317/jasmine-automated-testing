@@ -31,6 +31,11 @@ describe('Animal', function(){
     it('should display the name and gender', function(){
       expect(animal.display_info()).toEqual('Tsuki is a female animal');
     })
+    it('shoud call #display_info', () => {
+      spyOn(animal, 'display_info');
+      animal.display_info();
+      expect(animal.display_info).toHaveBeenCalled();
+    })    
   })
 
 
