@@ -58,4 +58,12 @@ describe('Animal', function(){
     })
   })
 
+  describe('protected attributes', () => {
+    it('should be undefined when access directly', () => {
+      expect(animal.name).toBeUndefined();
+      expect(animal.gender).toBeUndefined();
+      expect(animal.owner).toBeUndefined();
+    })
+  })
+
 })
