@@ -78,19 +78,29 @@ describe('MatcherTest', () =>{
 
   describe('spy', () => {
     let rabbit = {};
+
     beforeEach( () => {
       rabbit = {
         name,
-        setName: function(name){
+        setName: (name) =>{
           this.name = name;
+        },
+        getName: () => {
+          return this.name;
         }
       }
-      spyOn(rabbit, 'setName');
-      rabbit.setName('chapo');
     })
     // #toHaveBeenCalled tracks that the spy was called
     it('#toHaveBeenCalled', () => {
+        spyOn(rabbit, 'setName');
+        rabbit.setName('chapo');
         expect(rabbit.setName).toHaveBeenCalled();
+    })
+
+    //#returnValue, all calls to the function will return a specific value.
+    it('#returnValue', () => {
+      spyOn(rabbit, 'getName').and.returnValue('chapo');
+      expect(rabbit.getName()).toEqual('chapo');
     })
 
   })

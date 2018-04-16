@@ -23,6 +23,7 @@ describe('Animal', function(){
 
   describe('#walk()', function(){
     it ('should walk', function(){
+      spyOn(animal, 'walk').and.returnValue('Tsuki is walking...')
       expect(animal.walk()).toEqual('Tsuki is walking...');
     })
 
@@ -30,6 +31,7 @@ describe('Animal', function(){
       spyOn(animal, 'walk');
       animal.walk();
       expect(animal.walk).toHaveBeenCalled();
+
     })
   })
 
