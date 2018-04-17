@@ -103,6 +103,19 @@ describe('MatcherTest', () =>{
       expect(rabbit.getName()).toEqual('chapo');
     })
 
+    it('#callFake', () => {
+      // getName will always return beatriz because of callFake
+      spyOn(rabbit, 'getName').and.callFake(() => 'beatriz');
+      let rabbitChanged = rabbit.getName();
+
+      //However the name value can be modified by setName
+      rabbit.setName('chapo');
+
+      expect(rabbit.getName()).toEqual('beatriz');
+      //So you can access directly from the object
+      expect(rabbit.name).toEqual('chapo');
+    })
+
   })
 
 })
