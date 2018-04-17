@@ -106,12 +106,13 @@ describe('MatcherTest', () =>{
     it('#callFake', () => {
       // getName will always return beatriz because of callFake
       spyOn(rabbit, 'getName').and.callFake(() => 'beatriz');
-      let rabbitChanged = rabbit.getName();
 
+      expect(rabbit.getName()).toEqual('beatriz');
       //However the name value can be modified by setName
       rabbit.setName('chapo');
 
       expect(rabbit.getName()).toEqual('beatriz');
+      
       //So you can access directly from the object
       expect(rabbit.name).toEqual('chapo');
     })
@@ -119,3 +120,18 @@ describe('MatcherTest', () =>{
   })
 
 })
+
+//notes: differences between returnValue and callFake
+// returnValue can be override, callFake don't
+//e.g.
+  //#returnValue
+  // spyOn(rabbit, getName).and.returnValue('#returnValue')
+  //expect(rabbit.getName()).toEqual('#returnValue')
+  //rabbit.setName('changing value..')
+  //expect(rabbit.getName()).toEqual('#returnValue') => WILL FAIL
+
+  //#callFake
+  //spyOn(rabbit, getName).and.callFake(() => '#callFake')
+  //expect(rabbit.getName()).toEqual('#callFake');
+  //rabbit.setName('changing value..')
+  //expect(rabbit.getName()).toEqual('callFake') => WILL PASS
