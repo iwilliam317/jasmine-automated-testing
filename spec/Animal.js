@@ -41,8 +41,10 @@ describe('Animal', function(){
     })
 
     it('shoud call #display_info', () => {
-      spyOn(animal, 'display_info');
+      //overriding Tsuki is a female animal for blabla
+      spyOn(animal, 'display_info').and.returnValue('Animal walking...');
       animal.display_info();
+      expect(animal.display_info()).toContain('Animal walking...')
       expect(animal.display_info).toHaveBeenCalled();
     })    
   })
