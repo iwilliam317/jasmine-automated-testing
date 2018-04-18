@@ -122,6 +122,13 @@ describe('MatcherTest', () =>{
       expect(rabbit.setName).toThrowError('Name must be passed');
     })
 
+    it('#calls', () => {
+      spyOn(rabbit, 'setName');
+      rabbit.setName('bruna');
+      expect(rabbit.setName.calls.any()).not.toBe(false);
+      rabbit.setName('bruna');
+      expect(rabbit.setName.calls.count()).toBe(2);
+    })
   })
 
 })
