@@ -98,12 +98,12 @@ describe('MatcherTest', () =>{
     })
 
     //#returnValue, all calls to the function will return a specific value.
-    it('#returnValue', () => {
+    it('#and.returnValue', () => {
       spyOn(rabbit, 'getName').and.returnValue('chapo');
       expect(rabbit.getName()).toEqual('chapo');
     })
 
-    it('#callFake', () => {
+    it('#and.callFake', () => {
       // getName will always return beatriz because of callFake
       spyOn(rabbit, 'getName').and.callFake(() => 'beatriz');
 
@@ -115,6 +115,11 @@ describe('MatcherTest', () =>{
       
       //So you can access directly from the object
       expect(rabbit.name).toEqual('chapo');
+    })
+
+    it('#and.throwError', () => {
+      spyOn(rabbit, 'setName').and.throwError('Name must be passed');
+      expect(rabbit.setName).toThrowError('Name must be passed');
     })
 
   })
