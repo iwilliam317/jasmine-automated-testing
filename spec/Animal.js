@@ -68,6 +68,11 @@ describe('Animal', function(){
       expect(animal.gender).toBeUndefined();
       expect(animal.owner).toBeUndefined();
     })
+
+    it('throws an error when calls getAttribute without argument', () => {
+      spyOn(animal, 'getAttribute').and.throwError('Attribute must be passed');
+      expect(animal.getAttribute).toThrowError('Attribute must be passed');
+    })
   })
 
 })

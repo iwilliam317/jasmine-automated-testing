@@ -6,7 +6,12 @@ class Animal{
   }
   
   getAttribute(attribute){
-    return attributes.get(this)[attribute];
+    if (attribute){
+      return attributes.get(this)[attribute];
+    }
+    else{
+      throw Error('Attribute must be passed');
+    }
   }
   walk(){
     return `${attributes.get(this)['name']} is walking...`
