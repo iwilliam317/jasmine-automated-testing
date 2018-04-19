@@ -58,7 +58,9 @@ describe('Animal', function(){
     it('should call setOwner()', () => {
       spyOn(animal, 'setOwner');
       animal.setOwner('william');
-      expect(animal.setOwner).toHaveBeenCalledWith('william');            
+      expect(animal.setOwner).toHaveBeenCalledWith('william');   
+      expect(animal.setOwner.calls.count()).toBe(1);
+      expect(animal.setOwner.calls.any()).toBe(true)         
     })
   })
 

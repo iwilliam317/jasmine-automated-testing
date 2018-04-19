@@ -128,6 +128,11 @@ describe('MatcherTest', () =>{
       expect(rabbit.setName.calls.any()).not.toBe(false);
       rabbit.setName('bruna');
       expect(rabbit.setName.calls.count()).toBe(2);
+      //reset calls
+      rabbit.setName.calls.reset();
+      expect(rabbit.setName.calls.count()).toBe(0);
+      expect(rabbit.setName.calls.any()).toBe(false);
+
     })
   })
 
