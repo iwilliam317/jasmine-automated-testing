@@ -22,4 +22,18 @@ describe('VehicleTest', () => {
       
     })
   })
+
+  describe('with invalid params', () => {
+    let invalidVehicle = new Vehicle();
+    
+    it('should be undefined', () => {
+      expect(invalidVehicle.model).toBeUndefined();
+      expect(invalidVehicle.year).not.toBeDefined();
+    })
+
+    it('throws error', () => {
+      spyOn(invalidVehicle, 'info').and.throwError('Invalid vehicle');
+      expect(invalidVehicle.info).toThrowError('Invalid vehicle')
+    })
+  })
 })
