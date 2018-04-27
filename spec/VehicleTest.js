@@ -15,10 +15,11 @@ describe('VehicleTest', () => {
 
   describe('#info', () => {
     it('should display Ferrari 458 Italia 2016 ', () => {
-      spyOn(vehicle, 'info');
+      spyOn(vehicle, 'info').and.returnValue('Ferrari 458 Italia 2016');
       vehicle.info();
       expect(vehicle.info).toHaveBeenCalled();
       expect(vehicle.info.calls.count()).toEqual(1);
+      expect(vehicle.info()).toEqual('Ferrari 458 Italia 2016')
       
     })
   })
